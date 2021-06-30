@@ -50,3 +50,15 @@ def show2(request):
 
     # dict가 아닌 자료는 항상 safe=False 옵션 사용
     return JsonResponse(data, safe=False)
+
+def template(request):
+    data = {
+        'str': 'text', 
+        'num': 10,
+        'list': [1, 2, 3],
+        'dict': {'a': 'aaa', 'b': 'bbb'}
+    }
+    return render(request, 'firstapp/template.html', data)
+
+def template_extionsion(request):
+    return render(request, 'firstapp/template_extension.html')

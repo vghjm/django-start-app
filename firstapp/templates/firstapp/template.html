@@ -1,0 +1,56 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+</head>
+<body>
+    <img src="/static/firstapp/aa.jpg">
+    <img src="{% static 'firstapp/aa.jpg' %}">
+    <img src="{% static 'firstapp/bb.jpg' %}">
+
+    <h3>문자 및 숫자</h3>
+    <p>{{ str }} / {{ num }}</p>
+    <hr>
+    <h3>리스트</h3>
+    <p>{{ list.0 }} / {{ list.1 }} / {{ list.2 }}</p>
+    <hr>
+    <h3>딕셔너리</h3>
+    <p>{{ dict.a }} / {{ dict.b }}</p>
+    <hr>
+
+    <h3>조건문</h3>
+    {% if num >= 5 %} 
+        <p>PASS - {{ num }}</p>
+    {% else %} 
+        <p>FAIL - {{ num }}</p>
+    {% endif %}
+
+    <h3>반복문</h3>
+    <ul>
+        {% for i in list %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>필터</h3>
+    <p>{{ str|upper }}</p>
+    <p>{{ num|floatformat:3 }}</p>
+    <p>{{ list|join:'#'}}</p>
+
+    <h3>주석</h3>
+    {# 한줄 주석 #}
+    {% comment %}
+        여러줄 주석
+        HTML에서 보이지 않는 부분
+    {% endcomment %}
+    <!-- HTML에서 보이는 부분 -->
+
+    <h3>HTML 확장</h3>
+    <a href="template_extension">확장보기</a>
+</body>
+</html>
