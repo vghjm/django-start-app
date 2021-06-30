@@ -1,5 +1,5 @@
 from .models import Curriculum
-from django.http import HttpResponse
+from django.shortcuts import HttpResponse, render
 
 def index1(request):
     return HttpResponse('<u>Hello</u>')
@@ -29,8 +29,13 @@ def insert(requset):
 def show(request):
     curriculum = Curriculum.objects.all()
 
-    response = ''
-    for c in curriculum:
-        response += c.name + '<br>'
+    # response = ''
+    # for c in curriculum:
+    #     response += c.name + '<br>'
 
-    return HttpResponse(response)
+    # return HttpResponse(response)
+
+    return render(
+        request, 'firstapp/show.html', 
+        {'data': curriculum}
+    )
