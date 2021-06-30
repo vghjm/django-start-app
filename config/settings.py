@@ -69,6 +69,18 @@ DATABASES = {
     }
 }
 
+# MySQL (MariaDB)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'django',
+#         'USER': 'root',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#         'PORT': 3306
+#     }
+# }
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
